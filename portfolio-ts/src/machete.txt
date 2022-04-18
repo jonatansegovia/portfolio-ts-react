@@ -1,0 +1,32 @@
+// Typography //
+<Typography variant="h1" component="h2">Hola</Typography>
+
+- default: paragraph
+- variant: que tipo de tag queremos que copie
+- component: que tipo de tag queremos que sea, sino lo establecemos toma el variant
+- align: 'center' | 'inherit' | 'justify' | 'left' | 'right' (default: inherit)
+- gutterBottom: if 'true', se activa margin bottom
+- noWrap: if 'true', texto no wrapea
+- paragraph: if 'true', tag es paragraph
+- color: 'primary' | 'secondary' | 'inherit'
+- sx
+
+// Button // (buttonGroup si tenemos muchos botones)
+<Button variant="contained" href='#adondequeremosir' disabledElevation aria-label='lo que queremos que diga'></Button>
+- default: variant = solo texto
+- variant: contained (bg activado), outlined (borde con color)
+- disabled: el botón no podrá ser presionado
+- disabledElevation: saca la sombra por fuera
+- href: '#adondequeremosir'
+- aria-label: lo que queremos que diga
+- size: small | medium | large
+
+// Container //
+<Container></Container>
+
+- wrapea nuestras cosas y les da algo de margin y demás
+
+
+
+
+
