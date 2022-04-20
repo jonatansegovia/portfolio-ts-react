@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Typed from 'react-typed';
 import Button from '@mui/material/Button';
-import TabScrollButton from '@mui/material/TabScrollButton';
+// import TabScrollButton from '@mui/material/TabScrollButton';
 import Stack from '@mui/material/Stack';
 
 const Greeting = () => {
@@ -58,7 +58,7 @@ const Greeting = () => {
         </Stack>
       </Grid>
 
-      <Grid
+      {/* <Grid
         container
         alignItems="center"
         justifyContent="center"
@@ -67,7 +67,7 @@ const Greeting = () => {
         <Grid item>
           <TabScrollButton direction="right" orientation="vertical" />
         </Grid>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

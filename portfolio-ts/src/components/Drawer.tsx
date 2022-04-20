@@ -8,6 +8,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import NotesIcon from '@mui/icons-material/Notes';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 
 type Anchor = 'left';
 
@@ -46,12 +47,16 @@ export default function TemporaryDrawer() {
     >
       <List>
         <ListItemIcon sx={{ minWidth: 'auto' }}>
-          <GitHubIcon fontSize="large" />
+          <Link href="https://github.com/jonatansegovia">
+            <GitHubIcon fontSize="large" />
+          </Link>
         </ListItemIcon>
       </List>
       <List>
         <ListItemIcon sx={{ minWidth: 'auto' }}>
-          <LinkedInIcon fontSize="large" />
+          <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
+            <LinkedInIcon fontSize="large" />
+          </Link>
         </ListItemIcon>
       </List>
     </Box>
