@@ -12,7 +12,7 @@ import Link from '@mui/material/Link';
 
 type Anchor = 'left';
 
-export default function TemporaryDrawer() {
+export default function LeftBar() {
   const [state, setState] = React.useState({
     left: false,
   });

@@ -1,4 +1,4 @@
-import { skills } from '../utils/variables';
+import { skills } from '../data/skills';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
