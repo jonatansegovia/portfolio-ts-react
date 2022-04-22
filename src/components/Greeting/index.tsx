@@ -17,7 +17,6 @@ const Greeting = () => {
     >
       <Grid
         container
-        className="App"
         alignItems="center"
         rowSpacing={1}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
@@ -39,7 +38,7 @@ const Greeting = () => {
         </Grid>
       </Grid>
       <Grid container className="App" alignItems="center" marginTop="5rem">
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12}>
           <Typography variant="h2" align="center">
             <Typed strings={skills} typeSpeed={70} backSpeed={50} loop />
           </Typography>
