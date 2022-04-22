@@ -22,4 +22,24 @@ export const projects = [
     longDescription:
       'Development of a SPA(Single Page Application) using React and Redux for the FrontEnd, styled with CSS modules. It consumes data from an external API (restcountries) through a BackEnd developed in NodeJs using Express and a relational DataBase in Postgress using Sequealize as the ORM. Some features of the project are: Different types of Filters, a search bar, and a controlled form to create your own recipe.',
   },
+  {
+    imgLink:
+      'https://www.nintenderos.com/wp-content/uploads/2021/09/pokemon-go-pikachu-arcoiris.jpg',
+    appLink: 'https://jonatansegovia.github.io/PokemonSearcher/',
+    title: `Pokemon Searcher`,
+    subheader: 'MARZO - 2021',
+    altText: 'pokemon-app miniature',
+    shortDescription: 'My first page using HTML5, CSS3 in combination witch JS',
+    longDescription: `In this app you can search for a Pokemon in the search bar, and see the output data with an image from this. I implemented vanilla JS for consuming the Pokemon API.`,
+  },
+  {
+    imgLink:
+      'https://github.com/jonatansegovia/narutofan-spage/blob/master/img/Naruto-Backgrounds-1.jpg?raw=true',
+    appLink: 'https://jonatansegovia.github.io/narutofan-spage/index.html',
+    title: `Naruto's Fan Page`,
+    subheader: 'DICIEMBRE - 2020',
+    altText: 'naruto-app miniature',
+    shortDescription: 'My first page using HTML5 and CSS3',
+    longDescription: `Basic page for giving my first steps in the world of HTML and CSS. This tries to reach the hearth of Naruto's fan, and compile in videos linked from YouTube, the best moments of this amazing anime.`,
+  },
 ];

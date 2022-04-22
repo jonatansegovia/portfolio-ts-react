@@ -3,6 +3,6 @@ export const skills = [
   'Family Guy',
   'Self-Taught',
   'Messi Fan',
-  'React Lover',
+  'React Enthusiast',
   'Empathetic',
 ];

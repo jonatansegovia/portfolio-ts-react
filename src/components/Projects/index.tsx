@@ -5,16 +5,17 @@ import Typography from '@mui/material/Typography';
 
 const Projects = () => {
   return (
-    <Grid container sx={{ marginTop: '5rem', gridGap: '3rem' }}>
+    <Grid container id="projects" sx={{ marginTop: '5rem', gridGap: '3rem' }}>
       {/*ver si dejo ese gap */}
       <Grid item xs={12}>
         <Typography variant="h3" align="center">
           Projects
         </Typography>
       </Grid>
-      {app.projects &&
-        app.projects.map((p) => (
+      {app.projects.length > 0 &&
+        app.projects.map((p, i) => (
           <Project
+            key={`${p.title} + ${i}`}
             imgLink={p.imgLink}
             appLink={p.appLink}
             title={p.title}

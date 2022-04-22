@@ -1,15 +1,20 @@
-import { skills } from '../data/skills';
+import { skills } from '../../data/skills';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Typed from 'react-typed';
 import Button from '@mui/material/Button';
-// import TabScrollButton from '@mui/material/TabScrollButton';
 import Stack from '@mui/material/Stack';
 
 const Greeting = () => {
   return (
-    <Grid container className="App" alignItems="center" marginTop="5rem">
+    <Grid
+      container
+      id="home"
+      className="App"
+      alignItems="center"
+      marginTop="5rem"
+    >
       <Grid
         container
         className="App"
@@ -33,7 +38,6 @@ const Greeting = () => {
           </Typography>
         </Grid>
       </Grid>
-
       <Grid container className="App" alignItems="center" marginTop="5rem">
         <Grid item xs={12} md={4}>
           <Typography variant="h2" align="center">
@@ -41,12 +45,11 @@ const Greeting = () => {
           </Typography>
         </Grid>
       </Grid>
-
       <Grid
         container
         alignItems="center"
         justifyContent="center"
-        marginTop="15rem"
+        marginTop="10rem"
       >
         <Stack spacing={2} direction="row">
           <Button variant="outlined" href="#" size="large">
@@ -57,17 +60,6 @@ const Greeting = () => {
           </Button>
         </Stack>
       </Grid>
-
-      {/* <Grid
-        container
-        alignItems="center"
-        justifyContent="center"
-        marginTop="2rem"
-      >
-        <Grid item>
-          <TabScrollButton direction="right" orientation="vertical" />
-        </Grid>
-      </Grid> */}
     </Grid>
   );
 };
