@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 const Footer = () => {
   return (
-    <Card sx={{ marginTop: '5rem' }} variant="outlined">
+    <Card sx={{ marginTop: '6rem' }} variant="outlined">
       <Container>
         <Grid container spacing={1}>
           <Grid item xs={12}>

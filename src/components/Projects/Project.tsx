@@ -44,40 +44,38 @@ export default function Project(props: props) {
   };
 
   return (
-    <Grid container alignItems="center" flexDirection="column">
-      <Grid item>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardHeader title={props.title} subheader={props.subheader} />
-          <Link href={props.appLink}>
-            <CardMedia
-              component="img"
-              height="194"
-              image={props.imgLink}
-              alt={props.altText}
-            />
-          </Link>
+    <Grid item>
+      <Card sx={{ maxWidth: 345, minHeight: 450 }}>
+        <CardHeader title={props.title} subheader={props.subheader} />
+        <Link href={props.appLink}>
+          <CardMedia
+            component="img"
+            height="194"
+            image={props.imgLink}
+            alt={props.altText}
+          />
+        </Link>
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">
+            {props.shortDescription}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              {props.shortDescription}
-            </Typography>
+            <Typography paragraph>{props.longDescription}</Typography>
           </CardContent>
-          <CardActions disableSpacing>
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </ExpandMore>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>{props.longDescription}</Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
-      </Grid>
+        </Collapse>
+      </Card>
     </Grid>
   );
 }

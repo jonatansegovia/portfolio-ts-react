@@ -1,5 +1,5 @@
 export const skills = [
-  'Developer',
+  'Front-end Developer',
   'Family Guy',
   'Self-Taught',
   'Messi Fan',

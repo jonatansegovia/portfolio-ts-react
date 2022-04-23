@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 const About = () => {
   return (
     <Container>
-      <Grid container marginTop="5rem" id="about">
+      <Grid container marginTop="6rem" id="about">
         <Grid item>
           <Typography variant="h3" align="center">
             About Me

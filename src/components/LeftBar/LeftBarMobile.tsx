@@ -15,9 +15,11 @@ import Link from '@mui/material/Link';
 import FaceIcon from '@mui/icons-material/Face';
 import Divider from '@mui/material/Divider';
 
+import { Scrollchor } from 'react-scrollchor';
+
 type Anchor = 'left';
 
-export default function LeftBar() {
+export default function LeftBarMobile() {
   const [state, setState] = React.useState({
     left: false,
   });
@@ -53,30 +55,30 @@ export default function LeftBar() {
       <List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="#home">
+            <Scrollchor to="#home">
               <HomeRounded fontSize="large" titleAccess="Home" />
-            </Link>
+            </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="#about">
+            <Scrollchor to="#about">
               <FaceIcon fontSize="large" titleAccess="About Me" />
-            </Link>
+            </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="#projects">
+            <Scrollchor to="#projects">
               <FolderOpenIcon fontSize="large" titleAccess="Projects" />
-            </Link>
+            </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="#contact">
+            <Scrollchor to="#contact">
               <MailOutlineIcon fontSize="large" titleAccess="Contact Me" />
-            </Link>
+            </Scrollchor>
           </ListItemIcon>
         </List>
         <Divider />

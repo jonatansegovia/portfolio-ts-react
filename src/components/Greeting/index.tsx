@@ -1,3 +1,5 @@
+import { Scrollchor } from 'react-scrollchor';
+
 import { skills } from '../../data/skills';
 
 import Grid from '@mui/material/Grid';
@@ -13,7 +15,8 @@ const Greeting = () => {
       id="home"
       className="App"
       alignItems="center"
-      marginTop="5rem"
+      marginTop="6rem"
+      height="100vh"
     >
       <Grid
         container
@@ -51,11 +54,18 @@ const Greeting = () => {
         marginTop="10rem"
       >
         <Stack spacing={2} direction="row">
-          <Button variant="outlined" href="#" size="large">
-            CONTACT ME
-          </Button>
+          <Scrollchor to="contact">
+            <Button variant="outlined" size="large">
+              CONTACT ME
+            </Button>
+          </Scrollchor>
           <Button variant="outlined" href="#" size="medium">
-            DOWNLOAD CV
+            <a
+              href="https://github.com/jonatansegovia/portfolio-ts-react/blob/main/src/data/Jon%20Segovia%20-%20CV%20(April%2022).pdf"
+              download
+            >
+              DOWNLOAD CV
+            </a>
           </Button>
         </Stack>
       </Grid>

@@ -10,8 +10,8 @@ import s from './index.module.css';
 const Contact = () => {
   return (
     <Container>
-      <Grid container id="contact" marginTop="5rem" sx={{ height: '80vh' }}>
-        <Grid item xs={12}>
+      <Grid container id="contact" marginTop="6rem" sx={{ height: '80vh' }}>
+        <Grid item xs={12} marginBottom="3rem">
           <Typography variant="h3" align="center">
             Contact Me
           </Typography>
