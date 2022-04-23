@@ -8,7 +8,35 @@ import Typed from 'react-typed';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
+import * as React from 'react';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import { setTimeout } from 'timers/promises';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const Greeting = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    window.setTimeout(() => setOpen(true), 5000);
+  };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <Grid
       container
@@ -59,14 +87,20 @@ const Greeting = () => {
               CONTACT ME
             </Button>
           </Scrollchor>
-          <Button variant="outlined" href="#" size="medium">
-            <a
-              href="https://github.com/jonatansegovia/portfolio-ts-react/blob/main/src/data/Jon%20Segovia%20-%20CV%20(April%2022).pdf"
-              download
-            >
+          <Button variant="outlined" size="medium" onClick={handleClick}>
+            <a href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'} download>
               DOWNLOAD CV
             </a>
           </Button>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert
+              onClose={handleClose}
+              severity="success"
+              sx={{ width: '100%' }}
+            >
+              Success!
+            </Alert>
+          </Snackbar>
         </Stack>
       </Grid>
     </Grid>
