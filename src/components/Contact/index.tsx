@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -7,7 +9,30 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 import s from './index.module.css';
 
+type userData = {
+  name: string;
+  email: string;
+  subject: string;
+  textArea: string;
+};
+
 const Contact = () => {
+  const [inputFromUser, setInputFromUser] = useState<userData>({
+    name: '',
+    email: '',
+    subject: '',
+    textArea: '',
+  });
+
+  const handleInputFromUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target);
+    // setInputFromUser((prevState) => {
+    //   return { ...prevState, [e.target.value]: e.target.value };
+    // });
+  };
+
+  console.log(inputFromUser);
+
   return (
     <Container>
       <Grid container id="contact" marginTop="6rem" sx={{ height: '80vh' }}>
@@ -18,17 +43,25 @@ const Contact = () => {
         </Grid>
         <Grid item xs={12}>
           <form noValidate autoComplete="off">
-            <TextField label="Name" fullWidth className={s.field}></TextField>
+            <TextField
+              label="Name"
+              fullWidth
+              className={s.field}
+              value={inputFromUser.name}
+              onChange={handleInputFromUser}
+            ></TextField>
             <TextField
               label="Email"
               fullWidth
               required
               className={s.field}
+              value={inputFromUser.email}
             ></TextField>
             <TextField
               label="Subject"
               fullWidth
               className={s.field}
+              value={inputFromUser.subject}
             ></TextField>
             <TextField
               label="Type Something Here..."
@@ -36,6 +69,7 @@ const Contact = () => {
               multiline
               rows={4}
               className={s.field}
+              value={inputFromUser.textArea}
             ></TextField>
             <Button
               type="submit"

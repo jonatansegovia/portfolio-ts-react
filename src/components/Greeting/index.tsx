@@ -1,17 +1,15 @@
+import React from 'react';
 import { Scrollchor } from 'react-scrollchor';
-
-import { skills } from '../../data/skills';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Typed from 'react-typed';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-
-import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { setTimeout } from 'timers/promises';
+
+import { skills } from '../../data/skills';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -75,6 +73,7 @@ const Greeting = () => {
           </Typography>
         </Grid>
       </Grid>
+
       <Grid
         container
         alignItems="center"
