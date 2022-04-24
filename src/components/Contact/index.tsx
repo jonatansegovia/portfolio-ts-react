@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import FormHelperText from '@mui/material/FormHelperText';
+
+import { validate } from '../../utils/validate';
 
 import s from './index.module.css';
 
@@ -13,7 +16,7 @@ type userData = {
   name: string;
   email: string;
   subject: string;
-  textArea: string;
+  textarea: string;
 };
 
 const Contact = () => {
@@ -21,17 +24,29 @@ const Contact = () => {
     name: '',
     email: '',
     subject: '',
-    textArea: '',
+    textarea: '',
+  });
+  const [errors, setErrors] = useState({
+    email: '',
+    textarea: '',
   });
 
   const handleInputFromUser = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target);
-    // setInputFromUser((prevState) => {
-    //   return { ...prevState, [e.target.value]: e.target.value };
-    // });
+    setInputFromUser((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+
+    setErrors(
+      validate({
+        ...inputFromUser,
+        [e.target.name]: e.target.value,
+      })
+    );
   };
 
-  console.log(inputFromUser);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <Container>
@@ -42,9 +57,10 @@ const Contact = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <form noValidate autoComplete="off">
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
             <TextField
-              label="Name"
+              label="name"
+              name="name"
               fullWidth
               className={s.field}
               value={inputFromUser.name}
@@ -52,25 +68,44 @@ const Contact = () => {
             ></TextField>
             <TextField
               label="Email"
+              name="email"
               fullWidth
               required
               className={s.field}
               value={inputFromUser.email}
+              onChange={handleInputFromUser}
+              error={(errors.email && true) || undefined}
             ></TextField>
+            {errors.email && (
+              <FormHelperText sx={{ color: 'red' }}>
+                {errors.email}
+              </FormHelperText>
+            )}
             <TextField
               label="Subject"
+              name="subject"
               fullWidth
               className={s.field}
               value={inputFromUser.subject}
+              onChange={handleInputFromUser}
             ></TextField>
             <TextField
               label="Type Something Here..."
+              name="textarea"
               fullWidth
+              required
               multiline
               rows={4}
               className={s.field}
-              value={inputFromUser.textArea}
+              value={inputFromUser.textarea}
+              onChange={handleInputFromUser}
+              error={(errors.textarea && true) || undefined}
             ></TextField>
+            {errors.textarea && (
+              <FormHelperText sx={{ color: 'red' }}>
+                {errors.textarea}
+              </FormHelperText>
+            )}
             <Button
               type="submit"
               variant="contained"
