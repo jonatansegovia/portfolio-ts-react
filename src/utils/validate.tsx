@@ -13,7 +13,6 @@ export const validate = (userData: userData) => {
   }
 
   if (userData.textarea.length < 10) {
-    console.log(userData.textarea.length, 33333);
     errors.textarea = 'Please, type some words...';
   }
 
