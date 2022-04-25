@@ -69,6 +69,8 @@ const Contact = () => {
       });
   };
 
+  console.log(errors);
+
   return (
     <Container>
       <Grid container id="contact" marginTop="6rem" sx={{ height: '80vh' }}>
@@ -80,7 +82,7 @@ const Contact = () => {
         <Grid item xs={12}>
           <form noValidate autoComplete="off" onSubmit={handleSubmit}>
             <TextField
-              label="name"
+              label="Name"
               name="name"
               fullWidth
               className={s.field}
@@ -95,7 +97,7 @@ const Contact = () => {
               className={s.field}
               value={inputFromUser.email}
               onChange={handleInputFromUser}
-              error={(errors.email && true) || undefined}
+              error={errors.email ? true : undefined}
             ></TextField>
             {errors.email && (
               <FormHelperText sx={{ color: 'red' }}>
@@ -120,7 +122,7 @@ const Contact = () => {
               className={s.field}
               value={inputFromUser.textarea}
               onChange={handleInputFromUser}
-              error={(errors.textarea && true) || undefined}
+              error={errors.textarea ? true : undefined}
             ></TextField>
             {errors.textarea && (
               <FormHelperText sx={{ color: 'red' }}>
@@ -133,7 +135,14 @@ const Contact = () => {
               variant="contained"
               endIcon={<KeyboardArrowRight />}
               className={s.field}
-              disabled={errors.textarea || errors.email ? true : false}
+              disabled={
+                errors.textarea ||
+                errors.email ||
+                inputFromUser.textarea.length <= 0 ||
+                inputFromUser.email.length <= 0
+                  ? true
+                  : false
+              }
             >
               Submit
             </Button>
