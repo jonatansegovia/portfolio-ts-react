@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Link from '@mui/material/Link';
 
 import { skills } from '../../data/skills';
 
@@ -82,14 +83,19 @@ const Greeting = () => {
       >
         <Stack spacing={2} direction="row">
           <Scrollchor to="contact">
-            <Button variant="outlined" size="large">
+            <Button variant="contained" size="large">
               CONTACT ME
             </Button>
           </Scrollchor>
-          <Button variant="outlined" size="medium" onClick={handleClick}>
-            <a href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'} download>
-              DOWNLOAD CV
-            </a>
+          <Button
+            variant="contained"
+            size="medium"
+            component={Link}
+            onClick={handleClick}
+            href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'}
+            download
+          >
+            DOWNLOAD CV
           </Button>
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { send } from 'emailjs-com';
 import { validate } from '../../utils/validate';
 
+import BasicModal from '../BasicModal';
+
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -9,8 +11,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import FormHelperText from '@mui/material/FormHelperText';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 import s from './index.module.css';
+import Spinner from '../Spinner';
 
 type userData = {
   name: string;
@@ -26,10 +30,14 @@ const Contact = () => {
     subject: '',
     textarea: '',
   });
+
   const [errors, setErrors] = useState({
     email: '',
     textarea: '',
   });
+
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showLoading, setShowLoading] = useState<boolean>(false);
 
   const handleInputFromUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputFromUser((prevState) => {
@@ -49,6 +57,8 @@ const Contact = () => {
 
     if (errors.textarea || errors.email) return;
 
+    setShowLoading(true);
+
     send(
       'service_3c7vv0h', //service_id
       'gmail_template', //nombre del template que cree
@@ -62,6 +72,10 @@ const Contact = () => {
           subject: '',
           textarea: '',
         });
+
+        setShowModal(true);
+        setShowLoading(false);
+
         console.log('SUCCESS!', response.status, response.text);
       })
       .catch((err) => {
@@ -69,8 +83,11 @@ const Contact = () => {
       });
   };
 
-  console.log(errors);
+  const handleClose = () => {
+    setShowModal(false);
+  };
 
+  console.log('show', showLoading);
   return (
     <Container>
       <Grid container id="contact" marginTop="6rem" sx={{ height: '80vh' }}>
@@ -79,6 +96,7 @@ const Contact = () => {
             Contact Me
           </Typography>
         </Grid>
+
         <Grid item xs={12}>
           <form noValidate autoComplete="off" onSubmit={handleSubmit}>
             <TextField
@@ -112,6 +130,7 @@ const Contact = () => {
               value={inputFromUser.subject}
               onChange={handleInputFromUser}
             ></TextField>
+
             <TextField
               label="Type Something Here..."
               name="textarea"
@@ -129,8 +148,8 @@ const Contact = () => {
                 {errors.textarea}
               </FormHelperText>
             )}
-
-            <Button
+            {showLoading && <Spinner />}
+            <LoadingButton
               type="submit"
               variant="contained"
               endIcon={<KeyboardArrowRight />}
@@ -143,12 +162,21 @@ const Contact = () => {
                   ? true
                   : false
               }
+              loading={showLoading}
             >
               Submit
-            </Button>
+            </LoadingButton>
           </form>
         </Grid>
       </Grid>
+      {showModal && (
+        <BasicModal
+          handleClose={handleClose}
+          open={showModal}
+          title={'Message Send!'}
+          text={undefined}
+        />
+      )}
     </Container>
   );
 };

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Scrollchor } from 'react-scrollchor';
+
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -14,8 +16,6 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import FaceIcon from '@mui/icons-material/Face';
 import Divider from '@mui/material/Divider';
-
-import { Scrollchor } from 'react-scrollchor';
 
 type Anchor = 'left';
 

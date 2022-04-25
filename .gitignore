@@ -24,3 +24,4 @@ yarn-error.log*
 
 # src
 /machete.txt
+/todo.txt
