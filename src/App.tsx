@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
+import LeftBarFixed from './components/LeftBar/LeftBarFixed';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
         />
       </ScrollToTop>
       <LeftBarMobile />
+      <LeftBarFixed />
       <Greeting />
       <About />
       <Projects />

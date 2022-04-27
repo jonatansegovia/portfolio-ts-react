@@ -8,7 +8,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import FormHelperText from '@mui/material/FormHelperText';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -87,7 +86,6 @@ const Contact = () => {
     setShowModal(false);
   };
 
-  console.log('show', showLoading);
   return (
     <Container>
       <Grid container id="contact" marginTop="6rem" sx={{ height: '80vh' }}>

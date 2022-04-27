@@ -17,6 +17,8 @@ import Link from '@mui/material/Link';
 import FaceIcon from '@mui/icons-material/Face';
 import Divider from '@mui/material/Divider';
 
+import s from './LeftBarMobile.module.css';
+
 type Anchor = 'left';
 
 export default function LeftBarMobile() {
@@ -101,7 +103,7 @@ export default function LeftBarMobile() {
   );
 
   return (
-    <div>
+    <div className={s['leftBar-mobile']}>
       {(['left'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <Button

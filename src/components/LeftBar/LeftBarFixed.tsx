@@ -10,10 +10,14 @@ import Link from '@mui/material/Link';
 import FaceIcon from '@mui/icons-material/Face';
 import Divider from '@mui/material/Divider';
 
+import s from './LeftBarFixed.module.css';
+
 export default function LeftBarFixed() {
   return (
     <Box
+      className={s['leftBar-fixed']}
       sx={{
+        position: 'fixed',
         width: 80,
         height: '100vh',
         display: 'flex',
