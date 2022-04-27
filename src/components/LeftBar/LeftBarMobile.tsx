@@ -58,28 +58,44 @@ export default function LeftBarMobile() {
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#home">
-              <HomeRounded fontSize="large" titleAccess="Home" />
+              <HomeRounded
+                fontSize="large"
+                titleAccess="Home"
+                color="secondary"
+              />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#about">
-              <FaceIcon fontSize="large" titleAccess="About Me" />
+              <FaceIcon
+                fontSize="large"
+                titleAccess="About Me"
+                color="secondary"
+              />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#projects">
-              <FolderOpenIcon fontSize="large" titleAccess="Projects" />
+              <FolderOpenIcon
+                fontSize="large"
+                titleAccess="Projects"
+                color="secondary"
+              />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#contact">
-              <MailOutlineIcon fontSize="large" titleAccess="Contact Me" />
+              <MailOutlineIcon
+                fontSize="large"
+                titleAccess="Contact Me"
+                color="secondary"
+              />
             </Scrollchor>
           </ListItemIcon>
         </List>
@@ -87,14 +103,22 @@ export default function LeftBarMobile() {
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://github.com/jonatansegovia">
-              <GitHubIcon fontSize="large" titleAccess="GitHub Profile" />
+              <GitHubIcon
+                fontSize="large"
+                titleAccess="GitHub Profile"
+                color="secondary"
+              />
             </Link>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
-              <LinkedInIcon fontSize="large" titleAccess="Linkedin Profile" />
+              <LinkedInIcon
+                fontSize="large"
+                titleAccess="Linkedin Profile"
+                color="secondary"
+              />
             </Link>
           </ListItemIcon>
         </List>
