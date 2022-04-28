@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
-import { switchToDark } from './redux/actions';
+import { switchDarkTheme } from './redux/reducer/theme';
 
 import ScrollToTop from '@qwp/react-scroll-up';
 
@@ -15,7 +15,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
 import { ThemeProvider } from '@mui/material/styles';
-import { lightTheme, darkTheme } from './utils/mui-theme';
+import { lightThemePalette, darkThemePalette } from './utils/mui-theme';
 import { CssBaseline } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -23,26 +23,20 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import './App.css';
 
 type RootState = {
-  darkTheme: boolean;
+  darkTheme: boolean | undefined;
 };
 
 function App() {
-  const darkGlobal = useSelector<RootState>((state) => state.darkTheme);
+  const { darkTheme }: any = useSelector<RootState>((state) => state.darkTheme);
   const dispatch: Dispatch<any> = useDispatch();
 
-  console.log(darkGlobal);
-
-  {
-    /* <Button>BUTTON</Button> */
-  }
-
   return (
-    <ThemeProvider theme={darkGlobal ? darkTheme : lightTheme}>
+    <ThemeProvider theme={darkTheme ? darkThemePalette : lightThemePalette}>
       <CssBaseline />
       <CustomButton
-        onClick={() => dispatch(switchToDark())}
+        onClick={() => dispatch(switchDarkTheme())}
         startIcon={
-          darkGlobal ? (
+          darkTheme ? (
             <Brightness4Icon
               sx={{
                 fontSize: '2.5rem !important',

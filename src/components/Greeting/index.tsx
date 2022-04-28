@@ -1,6 +1,8 @@
 import React from 'react';
 import { Scrollchor } from 'react-scrollchor';
 
+import { skills } from '../../data/skills';
+
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Typed from 'react-typed';
@@ -10,7 +12,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 
-import { skills } from '../../data/skills';
+import s from './index.module.css';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -69,7 +71,7 @@ const Greeting = () => {
       </Grid>
       <Grid container className="App" alignItems="center" marginTop="5rem">
         <Grid item xs={12}>
-          <Typography variant="h2" align="center">
+          <Typography variant="h5" align="center" className={s['x-sign']}>
             <Typed strings={skills} typeSpeed={70} backSpeed={50} loop />
           </Typography>
         </Grid>
