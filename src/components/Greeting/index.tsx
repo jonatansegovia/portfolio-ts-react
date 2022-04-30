@@ -1,7 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Scrollchor } from 'react-scrollchor';
 
-import { skills } from '../../data/skills';
+import { english_skills, spanish_skills } from '../../data/skills';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -14,6 +15,10 @@ import Link from '@mui/material/Link';
 
 import s from './index.module.css';
 
+type RootState = {
+  language: string;
+};
+
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref
@@ -23,6 +28,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 
 const Greeting = () => {
   const [open, setOpen] = React.useState(false);
+
+  const { language }: any = useSelector<RootState>((state) => state.language);
 
   const handleClick = () => {
     window.setTimeout(() => setOpen(true), 5000);
@@ -54,25 +61,30 @@ const Greeting = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
       >
         <Grid item xs={12} md={4}>
-          <Typography variant="h2" align="center">
-            Hi, I'm
+          <Typography variant="h3" align="center">
+            {language === 'ENG' ? 'Hi' : 'HOLA'}
           </Typography>
         </Grid>
         <Grid item xs={12} md={4}>
           <Typography variant="h1" align="center">
-            J0n
+            {language === 'ENG' ? `I'm J0n` : 'Soy J0n'}
           </Typography>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Typography variant="h2" align="center">
-            The
+          <Typography variant="h3" align="center">
+            {language === 'ENG' ? 'The' : 'El'}
           </Typography>
         </Grid>
       </Grid>
       <Grid container className="App" alignItems="center" marginTop="5rem">
         <Grid item xs={12}>
           <Typography variant="h5" align="center" className={s['x-sign']}>
-            <Typed strings={skills} typeSpeed={70} backSpeed={50} loop />
+            <Typed
+              strings={language === 'ENG' ? english_skills : spanish_skills}
+              typeSpeed={70}
+              backSpeed={50}
+              loop
+            />
           </Typography>
         </Grid>
       </Grid>
@@ -86,7 +98,7 @@ const Greeting = () => {
         <Stack spacing={2} direction="row">
           <Scrollchor to="contact">
             <Button variant="contained" size="large">
-              CONTACT ME
+              {language === 'ENG' ? `CONTACT ME` : 'CONTACTAME'}
             </Button>
           </Scrollchor>
           <Button
@@ -97,7 +109,7 @@ const Greeting = () => {
             href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'}
             download
           >
-            DOWNLOAD CV
+            {language === 'ENG' ? `DOWNLOAD CV` : 'DESCARGAR CV'}
           </Button>
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert
@@ -105,7 +117,7 @@ const Greeting = () => {
               severity="success"
               sx={{ width: '100%' }}
             >
-              Success!
+              {language === 'ENG' ? `Success!` : 'Descargado!'}
             </Alert>
           </Snackbar>
         </Stack>

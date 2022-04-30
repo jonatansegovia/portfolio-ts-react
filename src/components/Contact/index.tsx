@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { send } from 'emailjs-com';
 import { validate } from '../../utils/validate';
 
@@ -22,6 +23,16 @@ type userData = {
   textarea: string;
 };
 
+type RootState = {
+  language: string;
+};
+
+const {
+  REACT_APP_SERVICE_ID: service_id,
+  REACT_APP_TEMPLATE: template,
+  REACT_APP_PUBLIC_KEY: public_key,
+}: any = process.env;
+
 const Contact = () => {
   const [inputFromUser, setInputFromUser] = useState<userData>({
     name: '',
@@ -37,6 +48,8 @@ const Contact = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showLoading, setShowLoading] = useState<boolean>(false);
+
+  const { language }: any = useSelector<RootState>((state) => state.language);
 
   const handleInputFromUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputFromUser((prevState) => {
@@ -58,12 +71,7 @@ const Contact = () => {
 
     setShowLoading(true);
 
-    send(
-      'service_3c7vv0h', //service_id
-      'gmail_template', //nombre del template que cree
-      inputFromUser, //data que envío
-      'RV7CArNTW2z-3UoJ4' //account/general => Public Key
-    )
+    send(service_id, template, inputFromUser, public_key)
       .then((response) => {
         setInputFromUser({
           name: '',
@@ -91,14 +99,14 @@ const Contact = () => {
       <Grid container id="contact" marginTop="6rem" sx={{ height: '80vh' }}>
         <Grid item xs={12} marginBottom="3rem">
           <Typography variant="h3" align="center">
-            Contact Me
+            {language === 'ENG' ? 'Contact Me' : 'Contactame'}
           </Typography>
         </Grid>
 
         <Grid item xs={12}>
           <form noValidate autoComplete="off" onSubmit={handleSubmit}>
             <TextField
-              label="Name"
+              label={language === 'ENG' ? 'Name' : 'Nombre'}
               name="name"
               fullWidth
               className={s.field}
@@ -121,7 +129,7 @@ const Contact = () => {
               </FormHelperText>
             )}
             <TextField
-              label="Subject"
+              label={language === 'ENG' ? 'Subject' : 'Asunto'}
               name="subject"
               fullWidth
               className={s.field}
@@ -130,7 +138,11 @@ const Contact = () => {
             ></TextField>
 
             <TextField
-              label="Type Something Here..."
+              label={
+                language === 'ENG'
+                  ? 'Type Something Here...'
+                  : 'Escribe algo aquí'
+              }
               name="textarea"
               fullWidth
               required
@@ -162,7 +174,7 @@ const Contact = () => {
               }
               loading={showLoading}
             >
-              Submit
+              {language === 'ENG' ? 'Submit' : 'Enviar'}
             </LoadingButton>
           </form>
         </Grid>

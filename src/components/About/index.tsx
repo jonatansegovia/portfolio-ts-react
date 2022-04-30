@@ -1,26 +1,32 @@
+import { useSelector } from 'react-redux';
+
+import {
+  english_presentation,
+  spanish_presentation,
+} from '../../data/presentation';
+
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+type RootState = {
+  language: string;
+};
+
 const About = () => {
+  const { language }: any = useSelector<RootState>((state) => state.language);
+
   return (
     <Container>
       <Grid container marginTop="6rem" id="about">
         <Grid item>
           <Typography variant="h3" align="center">
-            About Me
+            {language === 'ENG' ? 'About Me' : 'Sobre mí'}
           </Typography>
           <Box marginTop="1.8rem">
             <Typography align="center" fontSize="1.3rem">
-              I always say that all my life I was being prepared for this
-              moment. Why? because all the experience that I acquired across
-              years, leading and sharing with big groups, turned me into an
-              empathetic person who can get involved with people's needs and can
-              adapt to different situations. Programming allows me to use these
-              skills to achieve goals in more efficient and entertaining ways. I
-              hope to find a place where these skills can be developed in-depth
-              and people are valued above all else.
+              {language === 'ENG' ? english_presentation : spanish_presentation}
             </Typography>
           </Box>
         </Grid>

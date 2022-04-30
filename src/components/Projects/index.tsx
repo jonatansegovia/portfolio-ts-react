@@ -1,9 +1,17 @@
+import { useSelector } from 'react-redux';
+
 import Project from './Project';
-import * as app from '../../data/projects-data';
+import { projects_english, projects_spanish } from '../../data/projects-data';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
+type RootState = {
+  language: string;
+};
+
 const Projects = () => {
+  const { language }: any = useSelector<RootState>((state) => state.language);
+
   return (
     <>
       <Grid
@@ -19,7 +27,7 @@ const Projects = () => {
       >
         <Grid item>
           <Typography variant="h3" align="center">
-            Projects
+            {language === 'ENG' ? 'Projects' : 'Proyectos'}
           </Typography>
         </Grid>
       </Grid>
@@ -31,19 +39,32 @@ const Projects = () => {
           justifyContent: 'center',
         }}
       >
-        {app.projects.length > 0 &&
-          app.projects.map((p, i) => (
-            <Project
-              key={`${p.title} + ${i}`}
-              imgLink={p.imgLink}
-              appLink={p.appLink}
-              title={p.title}
-              subheader={p.subheader}
-              altText={p.altText}
-              shortDescription={p.shortDescription}
-              longDescription={p.longDescription}
-            />
-          ))}
+        {language === 'ENG'
+          ? projects_english.length > 0 &&
+            projects_english.map((p, i) => (
+              <Project
+                key={`${p.title} + ${i}`}
+                imgLink={p.imgLink}
+                appLink={p.appLink}
+                title={p.title}
+                subheader={p.subheader}
+                altText={p.altText}
+                shortDescription={p.shortDescription}
+                longDescription={p.longDescription}
+              />
+            ))
+          : projects_spanish.map((p, i) => (
+              <Project
+                key={`${p.title} + ${i}`}
+                imgLink={p.imgLink}
+                appLink={p.appLink}
+                title={p.title}
+                subheader={p.subheader}
+                altText={p.altText}
+                shortDescription={p.shortDescription}
+                longDescription={p.longDescription}
+              />
+            ))}
       </Grid>
     </>
   );

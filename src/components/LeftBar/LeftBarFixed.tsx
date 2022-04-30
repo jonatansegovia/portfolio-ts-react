@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import { Scrollchor } from 'react-scrollchor';
 
 import Box from '@mui/material/Box';
@@ -14,7 +16,17 @@ import Divider from '@mui/material/Divider';
 
 import s from './LeftBarFixed.module.css';
 
+type RootState = {
+  darkTheme: boolean | undefined;
+};
+
 export default function LeftBarFixed() {
+  const { darkTheme }: any = useSelector<RootState>((state) => state.darkTheme);
+
+  const onHover = darkTheme
+    ? s['leftBarIcons-bg-dark']
+    : s['leftBarIcons-bg-light'];
+
   return (
     <Box
       className={s['leftBar-fixed']}
@@ -34,6 +46,7 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#home">
               <HomeRounded
+                className={onHover}
                 fontSize="large"
                 titleAccess="Home"
                 color="secondary"
@@ -45,6 +58,7 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#about">
               <FaceIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="About Me"
                 color="secondary"
@@ -56,6 +70,7 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#projects">
               <FolderOpenIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="Projects"
                 color="secondary"
@@ -67,6 +82,7 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#contact">
               <MailOutlineIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="Contact Me"
                 color="secondary"
@@ -79,6 +95,11 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://github.com/jonatansegovia">
               <GitHubIcon
+                className={
+                  darkTheme
+                    ? s['leftBarIcons-bg-dark']
+                    : s['leftBarIcons-bg-light']
+                }
                 fontSize="large"
                 titleAccess="GitHub Profile"
                 color="secondary"
@@ -90,6 +111,11 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
               <LinkedInIcon
+                className={
+                  darkTheme
+                    ? s['leftBarIcons-bg-dark']
+                    : s['leftBarIcons-bg-light']
+                }
                 fontSize="large"
                 titleAccess="Linkedin Profile"
                 color="secondary"
