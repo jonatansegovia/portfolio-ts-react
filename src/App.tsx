@@ -21,9 +21,9 @@ import { CssBaseline } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
-import CustomIcon from './components/Custom';
+import CustomIcon from './components/CustomIcon';
 
 import './App.css';
 
@@ -43,7 +43,7 @@ function App() {
       <ThemeProvider theme={darkTheme ? darkThemePalette : lightThemePalette}>
         <CssBaseline />
         <CustomIcon />
-        <Button
+        {/* <Button
           // startIcon={process.env.public?.img.argentina}
           onClick={() => {
             if (language === 'ENG') dispatch(switchLanguage('SPA'));
@@ -51,7 +51,7 @@ function App() {
           }}
         >
           BOTÓN
-        </Button>
+        </Button> */}
         <CustomButton
           onClick={() => dispatch(switchDarkTheme())}
           startIcon={
