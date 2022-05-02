@@ -42,16 +42,6 @@ export const projects_english = [
     shortDescription: 'My first page using HTML5 and CSS3',
     longDescription: `Basic page for giving my first steps in the world of HTML and CSS. This tries to reach the hearth of Naruto's fan, and compile in videos linked from YouTube, the best moments of this amazing anime.`,
   },
-  {
-    imgLink:
-      'https://github.com/jonatansegovia/portfolio-ts-react/blob/main/public/portofolio.PNG',
-    appLink: 'https://portfolio-ts-react-js.herokuapp.com/',
-    title: `Naruto's Fan Page`,
-    subheader: 'DECEMBER - 2020',
-    altText: 'naruto-app miniature',
-    shortDescription: 'My first page using HTML5 and CSS3',
-    longDescription: `Basic page for giving my first steps in the world of HTML and CSS. This tries to reach the hearth of Naruto's fan, and compile in videos linked from YouTube, the best moments of this amazing anime.`,
-  },
 ];
 
 export const projects_spanish = [
