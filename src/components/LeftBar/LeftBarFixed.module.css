@@ -1,0 +1,15 @@
+.leftBarIcons-bg-dark:hover {
+  color: #ff96ba !important;
+  transition: 0.4s !important;
+}
+
+.leftBarIcons-bg-light:hover {
+  color: #ff0060 !important;
+  transition: 0.4s !important;
+}
+
+@media (max-width: 1345px) {
+  .leftBar-fixed {
+    display: none !important;
+  }
+}
