@@ -8,11 +8,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Typed from 'react-typed';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Link from '@mui/material/Link';
-import Container from '@mui/material/Container';
 
 import s from './index.module.css';
 
