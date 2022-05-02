@@ -3,7 +3,7 @@ export const projects_english = [
     imgLink:
       'https://github.com/jonatansegovia/webservice/blob/main/imgs/start-screen.png?raw=true',
     appLink: 'https://pf-web-service.vercel.app/',
-    title: 'E-commerce Services for Everybody | HENRY',
+    title: 'E-commerce | HENRY',
     subheader: 'NOVEMBER - 2021',
     altText: 'e-commerce-app miniature',
     shortDescription: 'E-commerce for regular services',
@@ -49,7 +49,7 @@ export const projects_spanish = [
     imgLink:
       'https://github.com/jonatansegovia/webservice/blob/main/imgs/start-screen.png?raw=true',
     appLink: 'https://pf-web-service.vercel.app/',
-    title: 'E-commerce Servicios Para Todos | HENRY',
+    title: 'E-commerce | HENRY',
     subheader: 'NOVIEMBRE - 2021',
     altText: 'e-commerce-app miniature',
     shortDescription: 'E-commerce para servicios de uso cotidiano',
