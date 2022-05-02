@@ -95,11 +95,7 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://github.com/jonatansegovia">
               <GitHubIcon
-                className={
-                  darkTheme
-                    ? s['leftBarIcons-bg-dark']
-                    : s['leftBarIcons-bg-light']
-                }
+                className={onHover}
                 fontSize="large"
                 titleAccess="GitHub Profile"
                 color="secondary"
@@ -111,11 +107,7 @@ export default function LeftBarFixed() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
               <LinkedInIcon
-                className={
-                  darkTheme
-                    ? s['leftBarIcons-bg-dark']
-                    : s['leftBarIcons-bg-light']
-                }
+                className={onHover}
                 fontSize="large"
                 titleAccess="Linkedin Profile"
                 color="secondary"

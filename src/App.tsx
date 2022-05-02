@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { switchDarkTheme } from './redux/reducer/theme';
-import { switchLanguage } from './redux/reducer/language';
 
 import ScrollToTop from '@qwp/react-scroll-up';
 
 import CustomButton from './components/CustomButton';
+import SwitchLanguage from './components/SwitchLanguage';
 
 import LeftBarMobile from './components/LeftBar/LeftBarMobile';
 import LeftBarFixed from './components/LeftBar/LeftBarFixed';
@@ -21,10 +21,6 @@ import { CssBaseline } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-// import Button from '@mui/material/Button';
-
-import CustomIcon from './components/CustomIcon';
-
 import './App.css';
 
 type RootState = {
@@ -34,7 +30,6 @@ type RootState = {
 
 function App() {
   const { darkTheme }: any = useSelector<RootState>((state) => state.darkTheme);
-  const { language }: any = useSelector<RootState>((state) => state.language);
 
   const dispatch: Dispatch<any> = useDispatch();
 
@@ -42,16 +37,7 @@ function App() {
     <div className={darkTheme ? '' : `${'app-background'}`}>
       <ThemeProvider theme={darkTheme ? darkThemePalette : lightThemePalette}>
         <CssBaseline />
-        <CustomIcon />
-        {/* <Button
-          // startIcon={process.env.public?.img.argentina}
-          onClick={() => {
-            if (language === 'ENG') dispatch(switchLanguage('SPA'));
-            if (language === 'SPA') dispatch(switchLanguage('ENG'));
-          }}
-        >
-          BOTÓN
-        </Button> */}
+        <SwitchLanguage />
         <CustomButton
           onClick={() => dispatch(switchDarkTheme())}
           startIcon={
@@ -85,7 +71,10 @@ function App() {
         />
         <LeftBarMobile />
         <LeftBarFixed />
-        <ScrollToTop showUnder={160} style={{ bottom: '15px', right: '15px' }}>
+        <ScrollToTop
+          showUnder={160}
+          style={{ bottom: '15px', right: '15px', zIndex: '100' }}
+        >
           <ArrowCircleUpOutlinedIcon
             color="secondary"
             sx={{ fontSize: '3rem' }}

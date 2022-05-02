@@ -183,7 +183,7 @@ const Contact = () => {
         <BasicModal
           handleClose={handleClose}
           open={showModal}
-          title={'Message Send!'}
+          title={language === 'ENG' ? 'Message Send!' : 'Mensaje Enviado!'}
           text={undefined}
         />
       )}

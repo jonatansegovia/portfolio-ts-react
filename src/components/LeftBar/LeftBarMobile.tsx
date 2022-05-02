@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+
 import { Scrollchor } from 'react-scrollchor';
 
 import Box from '@mui/material/Box';
@@ -21,10 +23,16 @@ import s from './LeftBarMobile.module.css';
 
 type Anchor = 'left';
 
+type RootState = {
+  darkTheme: boolean | undefined;
+};
+
 export default function LeftBarMobile() {
   const [state, setState] = React.useState({
     left: false,
   });
+
+  const { darkTheme }: any = useSelector<RootState>((state) => state.darkTheme);
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -39,6 +47,10 @@ export default function LeftBarMobile() {
 
       setState({ ...state, [anchor]: open });
     };
+
+  const onHover = darkTheme
+    ? s['leftBarIcons-bg-dark']
+    : s['leftBarIcons-bg-light'];
 
   const list = (anchor: Anchor) => (
     <Box
@@ -59,6 +71,7 @@ export default function LeftBarMobile() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#home">
               <HomeRounded
+                className={onHover}
                 fontSize="large"
                 titleAccess="Home"
                 color="secondary"
@@ -70,6 +83,7 @@ export default function LeftBarMobile() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#about">
               <FaceIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="About Me"
                 color="secondary"
@@ -81,6 +95,7 @@ export default function LeftBarMobile() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#projects">
               <FolderOpenIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="Projects"
                 color="secondary"
@@ -92,6 +107,7 @@ export default function LeftBarMobile() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Scrollchor to="#contact">
               <MailOutlineIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="Contact Me"
                 color="secondary"
@@ -100,7 +116,7 @@ export default function LeftBarMobile() {
           </ListItemIcon>
         </List>
         <Divider />
-        <List>
+        <List className={onHover}>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://github.com/jonatansegovia">
               <GitHubIcon
@@ -115,6 +131,7 @@ export default function LeftBarMobile() {
           <ListItemIcon sx={{ minWidth: 'auto' }}>
             <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
               <LinkedInIcon
+                className={onHover}
                 fontSize="large"
                 titleAccess="Linkedin Profile"
                 color="secondary"
