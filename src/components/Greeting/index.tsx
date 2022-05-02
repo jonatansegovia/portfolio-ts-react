@@ -12,6 +12,7 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Link from '@mui/material/Link';
+import Container from '@mui/material/Container';
 
 import s from './index.module.css';
 
@@ -91,19 +92,29 @@ const Greeting = () => {
 
       <Grid
         container
+        margin="1rem"
+        marginTop="10rem"
+        direction="row"
         alignItems="center"
         justifyContent="center"
-        marginTop="10rem"
       >
-        <Stack spacing={2} direction="row">
+        <Grid item>
           <Scrollchor to="contact">
-            <Button variant="contained" size="large">
+            <Button
+              variant="contained"
+              size="large"
+              className={s['button-size']}
+            >
               {language === 'ENG' ? `CONTACT ME` : 'CONTACTAME'}
             </Button>
           </Scrollchor>
+        </Grid>
+
+        <Grid item className={s['button-padding']}>
           <Button
+            type="button"
             variant="contained"
-            size="medium"
+            size="large"
             component={Link}
             onClick={handleClick}
             href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'}
@@ -111,16 +122,17 @@ const Greeting = () => {
           >
             {language === 'ENG' ? `DOWNLOAD CV` : 'DESCARGAR CV'}
           </Button>
-          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert
-              onClose={handleClose}
-              severity="success"
-              sx={{ width: '100%' }}
-            >
-              {language === 'ENG' ? `Success!` : 'Descargado!'}
-            </Alert>
-          </Snackbar>
-        </Stack>
+        </Grid>
+
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: '100%' }}
+          >
+            {language === 'ENG' ? `Success!` : 'Descargado!'}
+          </Alert>
+        </Snackbar>
       </Grid>
     </Grid>
   );

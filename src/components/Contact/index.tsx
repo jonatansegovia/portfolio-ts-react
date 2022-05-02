@@ -102,7 +102,6 @@ const Contact = () => {
             {language === 'ENG' ? 'Contact Me' : 'Contactame'}
           </Typography>
         </Grid>
-
         <Grid item xs={12}>
           <form noValidate autoComplete="off" onSubmit={handleSubmit}>
             <TextField
