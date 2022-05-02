@@ -12,7 +12,7 @@ export const projects_english = [
   },
   {
     imgLink:
-      'https://media-exp1.licdn.com/dms/image/sync/C4D27AQEmZjOnRbnWoQ/articleshare-shrink_1280_800/0/1649719078285?e=2147483647&v=beta&t=NtVi3CMuH_JlZFPpZn_Y569RBawsbkXkT4VvsvWO2X8',
+      'https://github.com/jonatansegovia/Countries-app/raw/master/images/home.PNG',
     appLink: 'https://countries-app-roan.vercel.app/',
     title: 'Countries App | HENRY',
     subheader: 'OCTOBER - 2021',
@@ -58,7 +58,7 @@ export const projects_spanish = [
   },
   {
     imgLink:
-      'https://media-exp1.licdn.com/dms/image/sync/C4D27AQEmZjOnRbnWoQ/articleshare-shrink_1280_800/0/1649719078285?e=2147483647&v=beta&t=NtVi3CMuH_JlZFPpZn_Y569RBawsbkXkT4VvsvWO2X8',
+      'https://github.com/jonatansegovia/Countries-app/raw/master/images/home.PNG',
     appLink: 'https://countries-app-roan.vercel.app/',
     title: 'Countries App | HENRY',
     subheader: 'OCTUBRE - 2021',
