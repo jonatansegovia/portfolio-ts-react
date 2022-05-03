@@ -5,7 +5,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 type props = {
   open: boolean;
-  handleClose: () => void;
+  handleClose: (openModal: boolean) => any;
   title: string;
   text: string | undefined;
 };
@@ -27,7 +27,7 @@ export default function BasicModal(props: props) {
     <div>
       <Modal
         open={props.open}
-        onClose={props.handleClose}
+        onClose={() => props.handleClose(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

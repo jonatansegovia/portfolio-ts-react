@@ -1,6 +1,6 @@
 .footer-background {
   background: linear-gradient(-45deg, #ee7752, #ff0084, #ffd2ff) !important;
-  max-width: 100% !important;
+  width: 100% !important;
 }
 
 .text-font {
