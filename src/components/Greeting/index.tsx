@@ -77,7 +77,7 @@ const Greeting = () => {
       </Grid>
       <Grid container className="App" alignItems="center" marginTop="5rem">
         <Grid item xs={12}>
-          <Typography variant="h5" align="center" className={s['x-sign']}>
+          <Typography variant="h3" align="center" className={s['x-sign']}>
             <Typed
               strings={language === 'ENG' ? english_skills : spanish_skills}
               typeSpeed={70}
