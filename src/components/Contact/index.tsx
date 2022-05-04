@@ -37,7 +37,6 @@ const Contact = () => {
           <TextType
             variant="h3"
             align="center"
-            language={language}
             firstText="Contact Me"
             secondText="Contactame"
           />
