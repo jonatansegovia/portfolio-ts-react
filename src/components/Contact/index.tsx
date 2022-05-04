@@ -19,9 +19,28 @@ const Contact = () => {
   const { language }: any = useSelector<RootState>((state) => state.language);
 
   const handleClose = (openModal: boolean) => {
-    console.log(openModal);
     setShowModal(openModal);
   };
+
+  const modal = showModal && (
+    <BasicModal
+      handleClose={handleClose}
+      open={true}
+      title={language === 'ENG' ? 'Message Send!' : 'Mensaje Enviado!'}
+      text={undefined}
+    />
+  );
+
+  const title = (
+    <TextType
+      variant="h3"
+      align="center"
+      firstText="Contact Me"
+      secondText="Contactame"
+    />
+  );
+
+  const form = <CustomForm language={language} handleModal={handleClose} />;
 
   return (
     <Container>
@@ -34,25 +53,13 @@ const Contact = () => {
         alignItems="center"
       >
         <Grid item xs={12} marginBottom="3rem" textAlign="center">
-          <TextType
-            variant="h3"
-            align="center"
-            firstText="Contact Me"
-            secondText="Contactame"
-          />
+          {title}
         </Grid>
         <Grid item xs={12}>
-          <CustomForm language={language} handleModal={handleClose} />
+          {form}
         </Grid>
       </Grid>
-      {showModal && (
-        <BasicModal
-          handleClose={handleClose}
-          open={true}
-          title={language === 'ENG' ? 'Message Send!' : 'Mensaje Enviado!'}
-          text={undefined}
-        />
-      )}
+      {modal}
     </Container>
   );
 };

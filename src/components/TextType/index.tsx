@@ -9,6 +9,7 @@ interface TextProps {
   firstText: string;
   secondText: string;
   align?: TypographyTypeMap['props']['align'];
+  id?: string;
 }
 
 type RootState = {
@@ -16,24 +17,27 @@ type RootState = {
 };
 
 const TextType = ({
-  //   children,
+  children,
   variant = 'body1',
   component = 'h3',
   onClick,
   firstText,
   secondText,
   align,
+  id,
 }: React.PropsWithChildren<TextProps>) => {
   const { language }: any = useSelector<RootState>((state) => state.language);
 
   return (
     <Typography
+      id={id}
       variant={variant}
       component={component}
       onClick={onClick}
       align={align}
     >
       {language === 'ENG' ? firstText : secondText}
+      {children}
     </Typography>
   );
 };

@@ -10,23 +10,31 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 const About = () => {
+  const title = (
+    <TextType
+      variant="h3"
+      align="center"
+      firstText="About Me"
+      secondText="Sobre mí"
+    />
+  );
+
+  const paragraph = (
+    <TextType
+      component="h5"
+      align="center"
+      firstText={english_presentation}
+      secondText={spanish_presentation}
+    />
+  );
+
   return (
     <Container>
       <Grid container marginTop="6rem" id="about" textAlign="center">
         <Grid item>
-          <TextType
-            variant="h3"
-            align="center"
-            firstText="About Me"
-            secondText="Sobre mí"
-          />
+          {title}
           <Box marginTop="1.8rem" textAlign="center">
-            <TextType
-              component="h5"
-              align="center"
-              firstText={english_presentation}
-              secondText={spanish_presentation}
-            />
+            {paragraph}
           </Box>
         </Grid>
       </Grid>

@@ -1,9 +1,11 @@
 import { useSelector } from 'react-redux';
 
+import TextType from '../TextType';
+
 import Project from './Project';
+
 import { projects_english, projects_spanish } from '../../data/projects-data';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 
 type RootState = {
   language: string;
@@ -11,6 +13,32 @@ type RootState = {
 
 const Projects = () => {
   const { language }: any = useSelector<RootState>((state) => state.language);
+
+  const english_project = projects_english.map((p, i) => (
+    <Project
+      key={`${p.title} + ${i}`}
+      imgLink={p.imgLink}
+      appLink={p.appLink}
+      title={p.title}
+      subheader={p.subheader}
+      altText={p.altText}
+      shortDescription={p.shortDescription}
+      longDescription={p.longDescription}
+    />
+  ));
+
+  const spanish_project = projects_spanish.map((p, i) => (
+    <Project
+      key={`${p.title} + ${i}`}
+      imgLink={p.imgLink}
+      appLink={p.appLink}
+      title={p.title}
+      subheader={p.subheader}
+      altText={p.altText}
+      shortDescription={p.shortDescription}
+      longDescription={p.longDescription}
+    />
+  ));
 
   return (
     <>
@@ -26,9 +54,12 @@ const Projects = () => {
         }}
       >
         <Grid item>
-          <Typography variant="h3" align="center">
-            {language === 'ENG' ? 'Projects' : 'Proyectos'}
-          </Typography>
+          <TextType
+            variant="h3"
+            align="center"
+            firstText="Projects"
+            secondText="Proyectos"
+          />
         </Grid>
       </Grid>
       <Grid
@@ -40,31 +71,8 @@ const Projects = () => {
         }}
       >
         {language === 'ENG'
-          ? projects_english.length > 0 &&
-            projects_english.map((p, i) => (
-              <Project
-                key={`${p.title} + ${i}`}
-                imgLink={p.imgLink}
-                appLink={p.appLink}
-                title={p.title}
-                subheader={p.subheader}
-                altText={p.altText}
-                shortDescription={p.shortDescription}
-                longDescription={p.longDescription}
-              />
-            ))
-          : projects_spanish.map((p, i) => (
-              <Project
-                key={`${p.title} + ${i}`}
-                imgLink={p.imgLink}
-                appLink={p.appLink}
-                title={p.title}
-                subheader={p.subheader}
-                altText={p.altText}
-                shortDescription={p.shortDescription}
-                longDescription={p.longDescription}
-              />
-            ))}
+          ? projects_english.length > 0 && english_project
+          : spanish_project}
       </Grid>
     </>
   );

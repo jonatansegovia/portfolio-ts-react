@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Scrollchor } from 'react-scrollchor';
 
 import { english_skills, spanish_skills } from '../../data/skills';
+import { handleLanguage } from '../../utils/handleLanguage';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -44,6 +45,66 @@ const Greeting = () => {
 
     setOpen(false);
   };
+
+  const greeting1 = (
+    <Typography variant="h3" align="center">
+      {handleLanguage(language, 'Hi', 'Hola')}
+    </Typography>
+  );
+
+  const greeting2 = (
+    <Typography variant="h1" align="center">
+      {handleLanguage(language, `I'm J0n`, 'Soy J0n')}
+    </Typography>
+  );
+
+  const greeting3 = (
+    <Typography variant="h3" align="center">
+      {handleLanguage(language, 'The', 'El')}
+    </Typography>
+  );
+
+  const skills = (
+    <Typography variant="h3" align="center" className={s['x-sign']}>
+      <Typed
+        strings={language === 'ENG' ? english_skills : spanish_skills}
+        typeSpeed={70}
+        backSpeed={50}
+        loop
+      />
+    </Typography>
+  );
+
+  const contactme_btn = (
+    <Scrollchor to="contact">
+      <Button variant="contained" size="large" className={s['button-size']}>
+        {handleLanguage(language, 'CONTACT ME', 'CONTACTAME')}
+      </Button>
+    </Scrollchor>
+  );
+
+  const download_btn = (
+    <Button
+      type="button"
+      variant="contained"
+      size="large"
+      component={Link}
+      onClick={handleClick}
+      href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'}
+      download
+    >
+      {handleLanguage(language, 'DOWNLOAD CV', 'DESCARGAR CV')}
+    </Button>
+  );
+
+  const sucess_message = (
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+        {handleLanguage(language, 'Success!', 'Descargado!')}
+      </Alert>
+    </Snackbar>
+  );
+
   return (
     <Grid
       container
@@ -60,34 +121,20 @@ const Greeting = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
       >
         <Grid item xs={12} md={4}>
-          <Typography variant="h3" align="center">
-            {language === 'ENG' ? 'Hi' : 'HOLA'}
-          </Typography>
+          {greeting1}
         </Grid>
         <Grid item xs={12} md={4}>
-          <Typography variant="h1" align="center">
-            {language === 'ENG' ? `I'm J0n` : 'Soy J0n'}
-          </Typography>
+          {greeting2}
         </Grid>
         <Grid item xs={12} md={4}>
-          <Typography variant="h3" align="center">
-            {language === 'ENG' ? 'The' : 'El'}
-          </Typography>
+          {greeting3}
         </Grid>
       </Grid>
       <Grid container className="App" alignItems="center" marginTop="5rem">
         <Grid item xs={12}>
-          <Typography variant="h3" align="center" className={s['x-sign']}>
-            <Typed
-              strings={language === 'ENG' ? english_skills : spanish_skills}
-              typeSpeed={70}
-              backSpeed={50}
-              loop
-            />
-          </Typography>
+          {skills}
         </Grid>
       </Grid>
-
       <Grid
         container
         margin="1rem"
@@ -96,41 +143,11 @@ const Greeting = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Grid item>
-          <Scrollchor to="contact">
-            <Button
-              variant="contained"
-              size="large"
-              className={s['button-size']}
-            >
-              {language === 'ENG' ? `CONTACT ME` : 'CONTACTAME'}
-            </Button>
-          </Scrollchor>
-        </Grid>
-
+        <Grid item>{contactme_btn}</Grid>
         <Grid item className={s['button-padding']}>
-          <Button
-            type="button"
-            variant="contained"
-            size="large"
-            component={Link}
-            onClick={handleClick}
-            href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'}
-            download
-          >
-            {language === 'ENG' ? `DOWNLOAD CV` : 'DESCARGAR CV'}
-          </Button>
+          {download_btn}
         </Grid>
-
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            sx={{ width: '100%' }}
-          >
-            {language === 'ENG' ? `Success!` : 'Descargado!'}
-          </Alert>
-        </Snackbar>
+        {sucess_message}
       </Grid>
     </Grid>
   );
