@@ -6,7 +6,6 @@ import Project from './Project';
 
 import { projects_english, projects_spanish } from '../../data/projects-data';
 import Grid from '@mui/material/Grid';
-
 type RootState = {
   language: string;
 };
