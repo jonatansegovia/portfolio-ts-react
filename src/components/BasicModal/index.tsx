@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -22,7 +24,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal(props: props) {
+const BasicModal = (props: props) => {
   return (
     <div>
       <Modal
@@ -55,4 +57,6 @@ export default function BasicModal(props: props) {
       </Modal>
     </div>
   );
-}
+};
+
+export default React.memo(BasicModal);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import BasicModal from '../BasicModal';
@@ -18,9 +18,9 @@ const Contact = () => {
 
   const { language }: any = useSelector<RootState>((state) => state.language);
 
-  const handleClose = (openModal: boolean) => {
+  const handleClose = useCallback((openModal: boolean) => {
     setShowModal(openModal);
-  };
+  }, []);
 
   const modal = showModal && (
     <BasicModal

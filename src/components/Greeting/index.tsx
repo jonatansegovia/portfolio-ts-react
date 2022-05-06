@@ -28,7 +28,6 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 
 const Greeting = () => {
   const [open, setOpen] = React.useState(false);
-
   const { language }: any = useSelector<RootState>((state) => state.language);
 
   const handleClick = () => {
@@ -90,12 +89,14 @@ const Greeting = () => {
       size="large"
       component={Link}
       onClick={handleClick}
-      href={process.env.PUBLIC_URL + '/JonSegovia_CV.pdf'}
+      href={process.env.PUBLIC_URL + '/JonSegovia_CV (May 2022).pdf'}
       download
     >
       {handleLanguage(language, 'DOWNLOAD CV', 'DESCARGAR CV')}
     </Button>
   );
+
+  console.log(process.env.PUBLIC_URL);
 
   const sucess_message = (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
