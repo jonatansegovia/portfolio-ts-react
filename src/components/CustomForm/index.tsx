@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 
 import { validate } from '../../utils/validate';
 import { send } from 'emailjs-com';
@@ -16,42 +16,69 @@ type FormType = {
   handleModal: (openModal: boolean) => any;
 };
 
-type userData = {
-  name: string;
-  email: string;
-  subject: string;
-  textarea: string;
-};
-
 const {
   REACT_APP_SERVICE_ID: service_id,
   REACT_APP_TEMPLATE: template,
   REACT_APP_PUBLIC_KEY: public_key,
 }: any = process.env;
 
+const initialState = {
+  showLoading: false,
+  name: '',
+  email: '',
+  subject: '',
+  textarea: '',
+};
+
+type formState = {
+  showLoading: boolean;
+  name: string;
+  email: string;
+  subject: string;
+  textarea: string;
+};
+
+type formAction = {
+  type: 'showLoading' | 'input from user' | 'restart form fields';
+  payload?: any;
+  field?: any;
+};
+
+const formReducer = (state: formState, action: formAction) => {
+  switch (action.type) {
+    case 'showLoading':
+      return { ...state, showLoading: !state.showLoading };
+    case 'input from user':
+      return { ...state, [action.field]: action.payload };
+    case 'restart form fields':
+      return {
+        ...state,
+        name: '',
+        email: '',
+        subject: '',
+        textarea: '',
+      };
+  }
+};
+
 const CustomForm = (props: FormType) => {
-  const [inputFromUser, setInputFromUser] = useState<userData>({
-    name: '',
-    email: '',
-    subject: '',
-    textarea: '',
-  });
+  const [formState, dispatchFormData] = useReducer(formReducer, initialState);
 
   const [errors, setErrors] = useState({
     email: '',
     textarea: '',
   });
 
-  const [showLoading, setShowLoading] = useState<boolean>(false);
-
   const handleInputFromUser = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputFromUser((prevState) => {
-      return { ...prevState, [e.target.name]: e.target.value };
+    dispatchFormData({
+      type: 'input from user',
+      field: e.target.name,
+      payload: e.target.value,
     });
 
     setErrors(
       validate({
-        ...inputFromUser,
+        ...formState,
         [e.target.name]: e.target.value,
       })
     );
@@ -62,19 +89,14 @@ const CustomForm = (props: FormType) => {
 
     if (errors.textarea || errors.email) return;
 
-    setShowLoading(true);
+    dispatchFormData({ type: 'showLoading' });
 
-    send(service_id, template, inputFromUser, public_key)
+    send(service_id, template, formState, public_key)
       .then((response) => {
-        setInputFromUser({
-          name: '',
-          email: '',
-          subject: '',
-          textarea: '',
-        });
+        dispatchFormData({ type: 'restart form fields' });
 
         props.handleModal(true);
-        setShowLoading(false);
+        dispatchFormData({ type: 'showLoading' });
 
         console.log('SUCCESS!', response.status, response.text);
       })
@@ -89,7 +111,7 @@ const CustomForm = (props: FormType) => {
       name="name"
       fullWidth
       className={s.field}
-      value={inputFromUser.name}
+      value={formState.name}
       onChange={handleInputFromUser}
     ></TextField>
   );
@@ -101,7 +123,7 @@ const CustomForm = (props: FormType) => {
       fullWidth
       required
       className={s.field}
-      value={inputFromUser.email}
+      value={formState.email}
       onChange={handleInputFromUser}
       error={errors.email ? true : undefined}
     ></TextField>
@@ -117,7 +139,7 @@ const CustomForm = (props: FormType) => {
       name="subject"
       fullWidth
       className={s.field}
-      value={inputFromUser.subject}
+      value={formState.subject}
       onChange={handleInputFromUser}
     ></TextField>
   );
@@ -135,7 +157,7 @@ const CustomForm = (props: FormType) => {
       multiline
       rows={4}
       className={s.field}
-      value={inputFromUser.textarea}
+      value={formState.textarea}
       onChange={handleInputFromUser}
       error={errors.textarea ? true : undefined}
     ></TextField>
@@ -145,7 +167,7 @@ const CustomForm = (props: FormType) => {
     <FormHelperText sx={{ color: 'red' }}>{errors.textarea}</FormHelperText>
   );
 
-  const spinner = showLoading && <Spinner />;
+  const spinner = formState.showLoading && <Spinner />;
 
   const button = (
     <LoadingButton
@@ -156,12 +178,12 @@ const CustomForm = (props: FormType) => {
       disabled={
         errors.textarea ||
         errors.email ||
-        inputFromUser.textarea.length <= 0 ||
-        inputFromUser.email.length <= 0
+        formState.textarea.length <= 0 ||
+        formState.email.length <= 0
           ? true
           : false
       }
-      loading={showLoading}
+      loading={formState.showLoading}
     >
       {props.language === 'ENG' ? 'Submit' : 'Enviar'}
     </LoadingButton>
