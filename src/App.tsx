@@ -6,6 +6,7 @@ import ScrollToTop from '@qwp/react-scroll-up';
 
 import CustomButton from './components/CustomButton';
 import SwitchLanguage from './components/SwitchLanguage';
+import Tech from './components/Tech';
 
 import LeftBarMobile from './components/LeftBar/LeftBarMobile';
 import LeftBarFixed from './components/LeftBar/LeftBarFixed';
@@ -82,6 +83,7 @@ function App() {
         </ScrollToTop>
         <Greeting />
         <About />
+        <Tech />
         <Projects />
         <Contact />
         <Footer />

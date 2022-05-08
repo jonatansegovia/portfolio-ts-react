@@ -8,7 +8,7 @@
   transition: 0.4s !important;
 }
 
-@media (min-width: 1345px) {
+@media (min-width: 735px) {
   .leftBar-mobile {
     display: none !important;
   }

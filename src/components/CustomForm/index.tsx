@@ -22,14 +22,6 @@ const {
   REACT_APP_PUBLIC_KEY: public_key,
 }: any = process.env;
 
-const initialState = {
-  showLoading: false,
-  name: '',
-  email: '',
-  subject: '',
-  textarea: '',
-};
-
 type formState = {
   showLoading: boolean;
   name: string;
@@ -42,6 +34,14 @@ type formAction = {
   type: 'showLoading' | 'input from user' | 'restart form fields';
   payload?: any;
   field?: any;
+};
+
+const initialState = {
+  showLoading: false,
+  name: '',
+  email: '',
+  subject: '',
+  textarea: '',
 };
 
 const formReducer = (state: formState, action: formAction) => {

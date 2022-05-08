@@ -8,7 +8,7 @@
   transition: 0.4s !important;
 }
 
-@media (max-width: 1345px) {
+@media (max-width: 735px) {
   .leftBar-fixed {
     display: none !important;
   }
