@@ -13,7 +13,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 
-import s from './index.module.css';
+// import s from './index.module.css';
 
 type RootState = {
   language: string;
@@ -23,7 +23,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref
 ) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
 });
 
 const Greeting = () => {
@@ -46,25 +46,25 @@ const Greeting = () => {
   };
 
   const greeting1 = (
-    <Typography variant="h3" align="center">
+    <Typography variant='h3' align='center'>
       {handleLanguage(language, 'Hi', 'Hola')}
     </Typography>
   );
 
   const greeting2 = (
-    <Typography variant="h1" align="center">
+    <Typography variant='h1' align='center'>
       {handleLanguage(language, `I'm J0n`, 'Soy J0n')}
     </Typography>
   );
 
   const greeting3 = (
-    <Typography variant="h3" align="center">
+    <Typography variant='h3' align='center'>
       {handleLanguage(language, 'The', 'El')}
     </Typography>
   );
 
   const skills = (
-    <Typography variant="h3" align="center" className={s['x-sign']}>
+    <Typography variant='h3' align='center' className='x-sign'>
       <Typed
         strings={language === 'ENG' ? english_skills : spanish_skills}
         typeSpeed={70}
@@ -75,8 +75,8 @@ const Greeting = () => {
   );
 
   const contactme_btn = (
-    <Scrollchor to="contact">
-      <Button variant="contained" size="large" className={s['button-size']}>
+    <Scrollchor to='contact'>
+      <Button variant='contained' size='large' className='button-size'>
         {handleLanguage(language, 'CONTACT ME', 'CONTACTAME')}
       </Button>
     </Scrollchor>
@@ -84,9 +84,9 @@ const Greeting = () => {
 
   const download_btn = (
     <Button
-      type="button"
-      variant="contained"
-      size="large"
+      type='button'
+      variant='contained'
+      size='large'
       component={Link}
       onClick={handleClick}
       href={process.env.PUBLIC_URL + '/JonSegovia_CV (May 2022).pdf'}
@@ -96,11 +96,9 @@ const Greeting = () => {
     </Button>
   );
 
-  console.log(process.env.PUBLIC_URL);
-
   const sucess_message = (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+      <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
         {handleLanguage(language, 'Success!', 'Descargado!')}
       </Alert>
     </Snackbar>
@@ -109,15 +107,15 @@ const Greeting = () => {
   return (
     <Grid
       container
-      id="home"
-      className="App"
-      alignItems="center"
-      marginTop="6rem"
-      height="100vh"
+      id='home'
+      className='App'
+      alignItems='center'
+      marginTop='6rem'
+      height='100vh'
     >
       <Grid
         container
-        alignItems="center"
+        alignItems='center'
         rowSpacing={1}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
       >
@@ -131,21 +129,21 @@ const Greeting = () => {
           {greeting3}
         </Grid>
       </Grid>
-      <Grid container className="App" alignItems="center" marginTop="5rem">
+      <Grid container className='App' alignItems='center' marginTop='5rem'>
         <Grid item xs={12}>
           {skills}
         </Grid>
       </Grid>
       <Grid
         container
-        margin="1rem"
-        marginTop="10rem"
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
+        margin='1rem'
+        marginTop='10rem'
+        direction='row'
+        alignItems='center'
+        justifyContent='center'
       >
         <Grid item>{contactme_btn}</Grid>
-        <Grid item className={s['button-padding']}>
+        <Grid item className='button-padding'>
           {download_btn}
         </Grid>
         {sucess_message}

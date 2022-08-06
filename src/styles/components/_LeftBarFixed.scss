@@ -1,4 +1,4 @@
-/* .leftBarIcons-bg-dark:hover {
+.leftBarIcons-bg-dark:hover {
   color: #ff96ba !important;
   transition: 0.4s !important;
 }
@@ -8,8 +8,8 @@
   transition: 0.4s !important;
 }
 
-@media (min-width: 1290px) {
-  .leftBar-mobile {
+@media (max-width: 1290px) {
+  .leftBar-fixed {
     display: none !important;
   }
-} */
+}

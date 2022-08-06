@@ -1,9 +1,9 @@
-import s from './index.module.css';
+// import s from './index.module.css';
 
 const Spinner = () => {
   return (
-    <div className={`${s.spinnerContainer}`}>
-      <div className={`${s.spinner} ${s.display}`}></div>
+    <div className='spinnerContainer'>
+      <div className='spinner display'></div>
     </div>
   );
 };

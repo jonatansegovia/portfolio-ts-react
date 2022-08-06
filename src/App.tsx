@@ -22,7 +22,7 @@ import { CssBaseline } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-import './App.css';
+// import './css/App.css';
 
 type RootState = {
   darkTheme: boolean | undefined;
@@ -68,7 +68,7 @@ function App() {
               />
             )
           }
-          color="inherit"
+          color='inherit'
         />
         <LeftBarMobile />
         <LeftBarFixed />
@@ -77,7 +77,7 @@ function App() {
           style={{ bottom: '15px', right: '15px', zIndex: '100' }}
         >
           <ArrowCircleUpOutlinedIcon
-            color="secondary"
+            color='secondary'
             sx={{ fontSize: '3rem' }}
           />
         </ScrollToTop>

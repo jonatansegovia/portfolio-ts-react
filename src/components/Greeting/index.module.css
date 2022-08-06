@@ -1,4 +1,4 @@
-.x-sign {
+/* .x-sign {
   --interval: 1s;
   display: block;
   text-shadow: 0 0 10px var(--color1), 0 0 20px var(--color2),
@@ -27,7 +27,7 @@
 .button-font {
   font-family: 'Press Start 2P', cursive !important;
   /* font-size: 12px !important; */
-}
+/* }
 
 .button-size {
   width: 154.72px;
@@ -35,7 +35,7 @@
 
 .button-padding {
   padding-left: 8px;
-}
+} */
 
 /* 
 x-sign:nth-of-type(1) {

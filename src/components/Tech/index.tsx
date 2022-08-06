@@ -21,85 +21,82 @@ import TextType from '../TextType';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
-import s from './index.module.css';
+// import s from './index.module.css';
 
 const Tech = () => {
   return (
     <Container>
       <Grid
         container
-        justifyContent="center"
-        alignItems="center"
-        marginTop="6rem"
+        justifyContent='center'
+        alignItems='center'
+        marginTop='6rem'
       >
         <TextType
-          variant="h3"
-          align="center"
-          firstText="Technologies"
-          secondText="Tecnologías"
+          variant='h3'
+          align='center'
+          firstText='Technologies'
+          secondText='Tecnologías'
         />
       </Grid>
       <Grid
         container
         spacing={2}
-        justifyContent="center"
-        alignItems="center"
-        textAlign="center"
-        marginTop="1.8rem"
+        justifyContent='center'
+        alignItems='center'
+        textAlign='center'
+        marginTop='1.8rem'
       >
         <Grid item xs={3}>
-          <ReactIcon className={s.icon} title="React" />
+          <ReactIcon className='icon' title='React' />
         </Grid>
         <Grid item xs={3}>
-          <JSIcon className={s.icon} title="Javascript" />
+          <JSIcon className='icon' title='Javascript' />
         </Grid>
         <Grid item xs={3}>
-          <TSIcon className={s.icon} title="Typescript" />
+          <TSIcon className='icon' title='Typescript' />
         </Grid>
         <Grid item xs={3}>
-          <ReduxIcon className={s.icon} title="Redux" />
+          <ReduxIcon className='icon' title='Redux' />
         </Grid>
         <Grid item xs={3}>
-          <HtmlIcon className={s.icon} title="HTML5" />
+          <HtmlIcon className='icon' title='HTML5' />
         </Grid>
         <Grid item xs={3}>
-          <CssIcon className={s.icon} title="CSS3" />
+          <CssIcon className='icon' title='CSS3' />
         </Grid>
         <Grid item xs={3}>
-          <MuiIcon className={s.icon} title="Material UI" />
+          <MuiIcon className='icon' title='Material UI' />
         </Grid>
         <Grid item xs={3}>
-          <GitIcon className={s.icon} title="Git" />
+          <GitIcon className='icon' title='Git' />
         </Grid>
         <Grid item xs={3}>
-          <GitHubIcon className={s.icon} title="GitHub" />
+          <GitHubIcon className='icon' title='GitHub' />
         </Grid>
         <Grid item xs={3}>
-          <SourceIcon className={s.icon} title="SourceTree" />
+          <SourceIcon className='icon' title='SourceTree' />
         </Grid>
         <Grid item xs={3}>
-          <PostManIcon className={s.icon} title="Postman" />
+          <PostManIcon className='icon' title='Postman' />
         </Grid>
         <Grid item xs={3}>
-          <NodeIcon className={s.icon} title="Node" />
+          <NodeIcon className='icon' title='Node' />
         </Grid>
         <Grid item xs={3}>
-          <PostgressIcon className={s.icon} title="PostgreSQL" />
+          <PostgressIcon className='icon' title='PostgreSQL' />
         </Grid>
         <Grid item xs={3}>
-          <ExpressIcon
-            className={`${s.icon} ${s['icon-bg']}`}
-            title="Express"
-          />
+          <ExpressIcon className='icon icon-bg' title='Express' />
         </Grid>
         <Grid item xs={3}>
-          <HerokuIcon className={s.icon} title="Heroku" />
+          <HerokuIcon className='icon' title='Heroku' />
         </Grid>
         <Grid item xs={3}>
-          <ScrumIcon className={s.icon} title="Scrum" />
+          <ScrumIcon className='icon' title='Scrum' />
         </Grid>
         <Grid item xs={3}>
-          <TrelloIcon className={`${s.icon} ${s['icon-bg']}`} title="Trello" />
+          <TrelloIcon className='icon icon-bg' title='Trello' />
         </Grid>
       </Grid>
     </Container>

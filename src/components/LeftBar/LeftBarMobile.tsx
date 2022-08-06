@@ -19,7 +19,7 @@ import Link from '@mui/material/Link';
 import FaceIcon from '@mui/icons-material/Face';
 import Divider from '@mui/material/Divider';
 
-import s from './LeftBarMobile.module.css';
+// import s from './LeftBarMobile.module.css';
 
 type Anchor = 'left';
 
@@ -48,9 +48,7 @@ export default function LeftBarMobile() {
       setState({ ...state, [anchor]: open });
     };
 
-  const onHover = darkTheme
-    ? s['leftBarIcons-bg-dark']
-    : s['leftBarIcons-bg-light'];
+  const onHover = darkTheme ? 'leftBarIcons-bg-dark' : 'leftBarIcons-bg-light';
 
   const list = (anchor: Anchor) => (
     <Box
@@ -62,55 +60,55 @@ export default function LeftBarMobile() {
         justifyContent: 'center',
         alignItems: 'center',
       }}
-      role="presentation"
+      role='presentation'
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#home">
+            <Scrollchor to='#home'>
               <HomeRounded
                 className={onHover}
-                fontSize="large"
-                titleAccess="Home"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Home'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#about">
+            <Scrollchor to='#about'>
               <FaceIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="About Me"
-                color="secondary"
+                fontSize='large'
+                titleAccess='About Me'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#projects">
+            <Scrollchor to='#projects'>
               <FolderOpenIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="Projects"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Projects'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#contact">
+            <Scrollchor to='#contact'>
               <MailOutlineIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="Contact Me"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Contact Me'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
@@ -118,23 +116,23 @@ export default function LeftBarMobile() {
         <Divider />
         <List className={onHover}>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="https://github.com/jonatansegovia">
+            <Link href='https://github.com/jonatansegovia'>
               <GitHubIcon
-                fontSize="large"
-                titleAccess="GitHub Profile"
-                color="secondary"
+                fontSize='large'
+                titleAccess='GitHub Profile'
+                color='secondary'
               />
             </Link>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
+            <Link href='https://www.linkedin.com/in/jonatan-segovia-dev/'>
               <LinkedInIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="Linkedin Profile"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Linkedin Profile'
+                color='secondary'
               />
             </Link>
           </ListItemIcon>
@@ -144,7 +142,7 @@ export default function LeftBarMobile() {
   );
 
   return (
-    <div className={s['leftBar-mobile']}>
+    <div className='leftBar-mobile'>
       {(['left'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <Button
@@ -152,7 +150,7 @@ export default function LeftBarMobile() {
             sx={{ position: 'fixed', top: 0, left: 0 }}
           >
             <Grid>
-              <NotesIcon fontSize="large" />
+              <NotesIcon fontSize='large' />
             </Grid>
           </Button>
           <Drawer open={state[anchor]} onClose={toggleDrawer(anchor, false)}>

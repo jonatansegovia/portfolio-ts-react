@@ -8,7 +8,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import FormHelperText from '@mui/material/FormHelperText';
 import LoadingButton from '@mui/lab/LoadingButton';
 
-import s from './index.module.css';
+// import s from './index.module.css';
 import Spinner from '../Spinner';
 
 type FormType = {
@@ -108,9 +108,9 @@ const CustomForm = (props: FormType) => {
   const name_field = (
     <TextField
       label={props.language === 'ENG' ? 'Name' : 'Nombre'}
-      name="name"
+      name='name'
       fullWidth
-      className={s.field}
+      className='field'
       value={formState.name}
       onChange={handleInputFromUser}
     ></TextField>
@@ -118,11 +118,11 @@ const CustomForm = (props: FormType) => {
 
   const email_field = (
     <TextField
-      label="Email"
-      name="email"
+      label='Email'
+      name='email'
       fullWidth
       required
-      className={s.field}
+      className='field'
       value={formState.email}
       onChange={handleInputFromUser}
       error={errors.email ? true : undefined}
@@ -136,9 +136,9 @@ const CustomForm = (props: FormType) => {
   const subject_field = (
     <TextField
       label={props.language === 'ENG' ? 'Subject' : 'Asunto'}
-      name="subject"
+      name='subject'
       fullWidth
-      className={s.field}
+      className='field'
       value={formState.subject}
       onChange={handleInputFromUser}
     ></TextField>
@@ -151,12 +151,12 @@ const CustomForm = (props: FormType) => {
           ? 'Type Something Here...'
           : 'Escribe algo aquí'
       }
-      name="textarea"
+      name='textarea'
       fullWidth
       required
       multiline
       rows={4}
-      className={s.field}
+      className='field'
       value={formState.textarea}
       onChange={handleInputFromUser}
       error={errors.textarea ? true : undefined}
@@ -171,10 +171,10 @@ const CustomForm = (props: FormType) => {
 
   const button = (
     <LoadingButton
-      type="submit"
-      variant="contained"
+      type='submit'
+      variant='contained'
       endIcon={<KeyboardArrowRight />}
-      className={s.field}
+      className='field'
       disabled={
         errors.textarea ||
         errors.email ||
@@ -190,7 +190,7 @@ const CustomForm = (props: FormType) => {
   );
 
   return (
-    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+    <form noValidate autoComplete='off' onSubmit={handleSubmit}>
       {name_field}
       {email_field}
       {email_field_error}

@@ -14,7 +14,7 @@ import Link from '@mui/material/Link';
 import FaceIcon from '@mui/icons-material/Face';
 import Divider from '@mui/material/Divider';
 
-import s from './LeftBarFixed.module.css';
+// import s from './LeftBarFixed.module.css';
 
 type RootState = {
   darkTheme: boolean | undefined;
@@ -23,13 +23,11 @@ type RootState = {
 export default function LeftBarFixed() {
   const { darkTheme }: any = useSelector<RootState>((state) => state.darkTheme);
 
-  const onHover = darkTheme
-    ? s['leftBarIcons-bg-dark']
-    : s['leftBarIcons-bg-light'];
+  const onHover = darkTheme ? 'leftBarIcons-bg-dark' : 'leftBarIcons-bg-light';
 
   return (
     <Box
-      className={s['leftBar-fixed']}
+      className='leftBar-fixed'
       sx={{
         position: 'fixed',
         width: 80,
@@ -39,53 +37,53 @@ export default function LeftBarFixed() {
         justifyContent: 'center',
         alignItems: 'center',
       }}
-      role="presentation"
+      role='presentation'
     >
       <List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#home">
+            <Scrollchor to='#home'>
               <HomeRounded
                 className={onHover}
-                fontSize="large"
-                titleAccess="Home"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Home'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#about">
+            <Scrollchor to='#about'>
               <FaceIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="About Me"
-                color="secondary"
+                fontSize='large'
+                titleAccess='About Me'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#projects">
+            <Scrollchor to='#projects'>
               <FolderOpenIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="Projects"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Projects'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Scrollchor to="#contact">
+            <Scrollchor to='#contact'>
               <MailOutlineIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="Contact Me"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Contact Me'
+                color='secondary'
               />
             </Scrollchor>
           </ListItemIcon>
@@ -93,24 +91,24 @@ export default function LeftBarFixed() {
         <Divider />
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="https://github.com/jonatansegovia">
+            <Link href='https://github.com/jonatansegovia'>
               <GitHubIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="GitHub Profile"
-                color="secondary"
+                fontSize='large'
+                titleAccess='GitHub Profile'
+                color='secondary'
               />
             </Link>
           </ListItemIcon>
         </List>
         <List>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
-            <Link href="https://www.linkedin.com/in/jonatan-segovia-dev/">
+            <Link href='https://www.linkedin.com/in/jonatan-segovia-dev/'>
               <LinkedInIcon
                 className={onHover}
-                fontSize="large"
-                titleAccess="Linkedin Profile"
-                color="secondary"
+                fontSize='large'
+                titleAccess='Linkedin Profile'
+                color='secondary'
               />
             </Link>
           </ListItemIcon>

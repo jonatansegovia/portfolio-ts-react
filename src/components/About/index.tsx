@@ -30,7 +30,13 @@ const About = () => {
 
   return (
     <Container>
-      <Grid container marginTop="6rem" id="about" textAlign="center">
+      <Grid
+        container
+        marginTop="6rem"
+        id="about"
+        textAlign="center"
+        padding="3rem"
+      >
         <Grid item>
           {title}
           <Box marginTop="1.8rem" textAlign="center">
