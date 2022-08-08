@@ -11,7 +11,7 @@ const Footer = () => {
       className='footer-background'
       spacing={1}
     >
-      <Grid item xs={12}>
+      <Grid item xs={12} id="footer-text__container">
         <Typography align='center' className='text-font' fontSize='small'>
           All Rights Reserved &copy; 2022
         </Typography>

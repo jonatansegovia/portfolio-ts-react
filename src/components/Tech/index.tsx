@@ -46,56 +46,57 @@ const Tech = () => {
         alignItems='center'
         textAlign='center'
         marginTop='1.8rem'
+        id='big-container'
       >
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <ReactIcon className='icon' title='React' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <JSIcon className='icon' title='Javascript' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <TSIcon className='icon' title='Typescript' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <ReduxIcon className='icon' title='Redux' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <HtmlIcon className='icon' title='HTML5' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <CssIcon className='icon' title='CSS3' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <MuiIcon className='icon' title='Material UI' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <GitIcon className='icon' title='Git' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <GitHubIcon className='icon' title='GitHub' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <SourceIcon className='icon' title='SourceTree' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <PostManIcon className='icon' title='Postman' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <NodeIcon className='icon' title='Node' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <PostgressIcon className='icon' title='PostgreSQL' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <ExpressIcon className='icon icon-bg' title='Express' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <HerokuIcon className='icon' title='Heroku' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <ScrumIcon className='icon' title='Scrum' />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} id='tech-img'>
           <TrelloIcon className='icon icon-bg' title='Trello' />
         </Grid>
       </Grid>

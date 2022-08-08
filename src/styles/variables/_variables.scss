@@ -1,0 +1,8 @@
+$fonts: (
+  1: 'Press Start 2P',
+  2: 'Bebas Neue',
+);
+
+@function fontFamily($font) {
+  @return map-get($fonts, $font);
+}
