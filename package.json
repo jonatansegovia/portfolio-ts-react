@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@types/react-anchor-link-smooth-scroll": "^1.0.2",
-    "@types/react-scrollable-anchor": "^0.6.1"
+    "@types/react-scrollable-anchor": "^0.6.1",
+    "node-sass": "^4.12.0"
   }
 }
