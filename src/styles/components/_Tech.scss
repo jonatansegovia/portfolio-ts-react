@@ -22,48 +22,54 @@
   animation: slideshow 20s linear infinite;
 }
 
-$animation: 1 0s, 2 4s, 3 8s, 4 12s, 5 16s, 6 20s, 7 24s, 8 28s, 9 32s, 10 36s,
-  11 40s, 12 44s;
+$animationList: 1 0s, 2 4s, 3 8s, 4 12s, 5 16s, 6 20s, 7 24s, 8 28s, 9 32s,
+  10 36s, 11 40s, 12 44s;
 
-#big-container #tech-img:nth-child(1) {
-  animation-delay: 0s;
+@each $item in $animationList {
+  #big-container #tech-img:nth-child(#{nth($item, 1)}) {
+    animation-delay: nth($item, 2);
+  }
 }
-#big-container #tech-img:nth-child(2) {
-  animation-delay: 4s;
-}
-#big-container #tech-img:nth-child(3) {
-  animation-delay: 8s;
-}
-#big-container #tech-img:nth-child(4) {
-  animation-delay: 12s;
-}
-#big-container #tech-img:nth-child(5) {
-  animation-delay: 16s;
-}
-#big-container #tech-img:nth-child(6) {
-  animation-delay: 20s;
-}
-#big-container #tech-img:nth-child(7) {
-  animation-delay: 24s;
-}
-#big-container #tech-img:nth-child(8) {
-  animation-delay: 28s;
-}
-#big-container #tech-img:nth-child(9) {
-  animation-delay: 32s;
-}
-#big-container #tech-img:nth-child(1) {
-  animation-delay: 36s;
-}
-#big-container #tech-img:nth-child(10) {
-  animation-delay: 40s;
-}
-#big-container #tech-img:nth-child(11) {
-  animation-delay: 44s;
-}
-#big-container #tech-img:nth-child(12) {
-  animation-delay: 48s;
-}
+
+// #big-container #tech-img:nth-child(1) {
+//   animation-delay: 0s;
+// }
+// #big-container #tech-img:nth-child(2) {
+//   animation-delay: 4s;
+// }
+// #big-container #tech-img:nth-child(3) {
+//   animation-delay: 8s;
+// }
+// #big-container #tech-img:nth-child(4) {
+//   animation-delay: 12s;
+// }
+// #big-container #tech-img:nth-child(5) {
+//   animation-delay: 16s;
+// }
+// #big-container #tech-img:nth-child(6) {
+//   animation-delay: 20s;
+// }
+// #big-container #tech-img:nth-child(7) {
+//   animation-delay: 24s;
+// }
+// #big-container #tech-img:nth-child(8) {
+//   animation-delay: 28s;
+// }
+// #big-container #tech-img:nth-child(9) {
+//   animation-delay: 32s;
+// }
+// #big-container #tech-img:nth-child(1) {
+//   animation-delay: 36s;
+// }
+// #big-container #tech-img:nth-child(10) {
+//   animation-delay: 40s;
+// }
+// #big-container #tech-img:nth-child(11) {
+//   animation-delay: 44s;
+// }
+// #big-container #tech-img:nth-child(12) {
+//   animation-delay: 48s;
+// }
 
 @keyframes slideshow {
   0% {
