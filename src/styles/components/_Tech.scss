@@ -22,6 +22,9 @@
   animation: slideshow 20s linear infinite;
 }
 
+$animation: 1 0s, 2 4s, 3 8s, 4 12s, 5 16s, 6 20s, 7 24s, 8 28s, 9 32s, 10 36s,
+  11 40s, 12 44s;
+
 #big-container #tech-img:nth-child(1) {
   animation-delay: 0s;
 }
